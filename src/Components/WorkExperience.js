@@ -3,73 +3,48 @@ import uniqid from 'uniqid';
 import WorkExpRender from './WorkExpRender';
 
 class WorkExperience extends Component {
-    constructor() {
-        super()
+    constructor(props) {
+        super(props)
 
         this.state = {
-            work: {
-                company: '',
-                position: '',
-                yearStarted: '',
-                yearEnded: '',
-                description: '',
-                id: uniqid(),
-            },
-            workArr: [],
+            
         }
     }
 
-    handleChange = (e) => {
-        const { value, name } = e.target;
-        this.setState({
-            work: {
-                ...this.state.work,
-                [name]: value,
-                id: this.state.work.id,
-            }
-            
-            
-        })
-        console.log(this.state.work)
-    }
-
-    onSubmitTask = (e) => {
-        e.preventDefault();
-        this.setState({
-            workArr: [...this.state.workArr, this.state.work],
-            company: '',
-            position: '',
-            yearStarted: '',
-            yearEnded: '',
-            description: '',
-            id: uniqid(), 
-        })
-        console.log(this.state.workArr)
-    }
 
 
     render() {
-        const { work, workArr } = this.state;
         return(
             <div>
-                <form onSubmit={this.onSubmitTask}>
+
+                <form onSubmit={this.props.onSubmitTask} >
+                    
                     <label>Company</label>
-                    <input value={work.company} name="company" onChange={this.handleChange} type="text"></input>
+                    <input placeholder="test" value={this.props.company} name="company" onChange={this.props.handleChange} type="text"></input>
                     <label>Position</label>
-                    <input value={work.position} name="position" onChange={this.handleChange} type="text"></input>
+                    <input value={this.props.position} name="position" onChange={this.props.handleChange} type="text"></input>
                     <label>Start Date</label>
-                    <input value={work.yearStarted} name="yearStarted" onChange={this.handleChange} type="text"></input>
+                    <input value={this.props.yearStarted} name="yearStarted" onChange={this.props.handleChange} type="text"></input>
                     <label>End Date</label>
-                    <input value={work.yearEnded} name="yearEnded" onChange={this.handleChange} type="text"></input>
+                    <input value={this.props.yearEnded} name="yearEnded" onChange={this.props.handleChange} type="text"></input>
                     <label>Job Description</label>
-                    <input value={work.description} name="description" onChange={this.handleChange} type="text"></input>
+                    <input value={this.props.description} name="description" onChange={this.props.handleChange} type="text"></input>
                     <button type="submit">Enter</button>
 
                     
                 </form>
-                <WorkExpRender work={workArr} />
+                <button onClick={this.props.addComponent}>Add</button>
+                {this.props.workArr.map((workInfo) => {
+                       return <div>
+                          
+                <h1 key={workInfo.id}>{workInfo.company} {workInfo.position} {workInfo.yearStarted} {workInfo.yearEnded} {workInfo.description}</h1>  
+                </div>
 
+            })}
+
+                
             </div>
+            
         )
     }
 
@@ -77,3 +52,52 @@ class WorkExperience extends Component {
 }
 
 export default WorkExperience;
+
+
+// When I hit add, two forms are being created. It's building a form from the app.js
+// and the  WorkExperience.js. Fix that. Then pick a way for the new WorkExperience form
+// to be created upon pressing the add button. 
+
+
+
+
+
+{/* <form>
+                    {this.props.work.map((workInfo) => {
+                        return <h1 key={workInfo.id}>{workInfo.company} {workInfo.position} {workInfo.yearStarted} {workInfo.yearEnded} {workInfo.description}</h1>
+                    })}
+                    <label>Company</label>
+                    <input placeholder="test" value={this.props.work.company} name="company" onChange={this.props.handleChange} type="text"></input>
+                    <label>Position</label>
+                    <input value={this.props.work.position} name="position" onChange={this.props.handleChange} type="text"></input>
+                    <label>Start Date</label>
+                    <input value={this.props.work.yearStarted} name="yearStarted" onChange={this.props.handleChange} type="text"></input>
+                    <label>End Date</label>
+                    <input value={this.props.work.yearEnded} name="yearEnded" onChange={this.props.handleChange} type="text"></input>
+                    <label>Job Description</label>
+                    <input value={this.props.description} name="description" onChange={this.props.handleChange} type="text"></input>
+                    <button type="submit">Enter</button>
+
+                    
+                </form> */}
+
+
+
+
+
+                // <form onSubmit={this.props.onSubmitTask} >
+                    
+                //     <label>Company</label>
+                //     <input placeholder="test" value={workInfo.company} name="company" onChange={this.props.handleChange} type="text"></input>
+                //     <label>Position</label>
+                //     <input value={workInfo.position} name="position" onChange={this.props.handleChange} type="text"></input>
+                //     <label>Start Date</label>
+                //     <input value={workInfo.yearStarted} name="yearStarted" onChange={this.props.handleChange} type="text"></input>
+                //     <label>End Date</label>
+                //     <input value={workInfo.yearEnded} name="yearEnded" onChange={this.props.handleChange} type="text"></input>
+                //     <label>Job Description</label>
+                //     <input value={workInfo.description} name="description" onChange={this.props.handleChange} type="text"></input>
+                //     <button type="submit">Enter</button>
+
+                    
+                // </form>
