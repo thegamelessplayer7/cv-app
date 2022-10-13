@@ -25,35 +25,25 @@ class App extends Component {
     }
   }
 
-  addComponent = () => {
-    this.setState({
-      workArr: [...this.state.workArr, {work: ''}],
+  addWorkObject = () => {
+    this.setState((state, props) => ({
+      workArr: [...state.workArr, {work: ''}],
       
     })
-    console.log(this.state.workArr);
-  }
+  )}
 
-  workHandleChange = (e) => {
+  // addComponent = () => {
+  //   console.log('test')
+  //   this.setState((state, props) => ({
+  //     componentArray: [...state.componentArray, {company: '', position: '', startDate: '', endDate: '', jobDescription: '', id: uniqid()}],
+      
+  //   })
+  // )}
+
+  addComponent = (e) => {
     e.preventDefault();
-    const { value, name } = e.target;
-    this.setState({
-        work: {
-            ...this.state.work,
-            [name]: value,
-            id: this.state.work.id,
-        }
-        
-        
-    })
-    console.log(this.state.work);
-    console.log(this.state.workArr);
-}
-
-
-  workOnSubmitTask = (e) => {
-    e.preventDefault();
-    this.setState({
-        workArr: [...this.state.workArr, this.state.work],
+    this.setState((state, props) => ({
+        workArr: [...state.workArr, state.work],
         work: {
           company: '',
           position: '',
@@ -62,7 +52,38 @@ class App extends Component {
           description: '',
           id: uniqid(), 
         },
-    })
+    }))}
+
+  workHandleChange = (e) => {
+    e.preventDefault();
+    const { value, name } = e.target;
+    this.setState((state, props) => ({
+        work: {
+            ...state.work,
+            [name]: value,
+            id: state.work.id,
+        }
+        
+        
+    }))
+    // console.log(this.state.work);
+    // console.log(this.state.workArr);
+}
+
+
+  workOnSubmitTask = (e) => {
+    e.preventDefault();
+    this.setState((state, props) => ({
+        workArr: [...state.workArr, state.work],
+        work: {
+          company: '',
+          position: '',
+          yearStarted: '',
+          yearEnded: '',
+          description: '',
+          id: uniqid(), 
+        },
+    }))
 }
 
 

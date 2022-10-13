@@ -35,9 +35,43 @@ class WorkExperience extends Component {
                 </form>
                 <button onClick={this.props.addComponent}>Add</button>
                 {this.props.workArr.map((workInfo) => {
+                    
+
+                    console.log(this.props.workArr)
                        return <div>
+                           
                           
                 <h1 key={workInfo.id}>{workInfo.company} {workInfo.position} {workInfo.yearStarted} {workInfo.yearEnded} {workInfo.description}</h1>  
+                </div>
+
+            })}
+
+
+
+
+            {this.props.workArr.map((workInfo) => {
+                    
+
+                    console.log(this.props.workArr)
+                       return <div>
+                           
+                          
+                           <form onSubmit={this.props.onSubmitTask} >
+                    
+                    <label>Company</label>
+                    <input placeholder="test" value={this.props.company} name="company" onChange={this.props.handleChange} type="text"></input>
+                    <label>Position</label>
+                    <input value={this.props.position} name="position" onChange={this.props.handleChange} type="text"></input>
+                    <label>Start Date</label>
+                    <input value={this.props.yearStarted} name="yearStarted" onChange={this.props.handleChange} type="text"></input>
+                    <label>End Date</label>
+                    <input value={this.props.yearEnded} name="yearEnded" onChange={this.props.handleChange} type="text"></input>
+                    <label>Job Description</label>
+                    <input value={this.props.description} name="description" onChange={this.props.handleChange} type="text"></input>
+                    <button type="submit">Enter</button>
+
+                    
+                </form>  
                 </div>
 
             })}
@@ -62,24 +96,24 @@ export default WorkExperience;
 
 
 
-{/* <form>
-                    {this.props.work.map((workInfo) => {
-                        return <h1 key={workInfo.id}>{workInfo.company} {workInfo.position} {workInfo.yearStarted} {workInfo.yearEnded} {workInfo.description}</h1>
-                    })}
-                    <label>Company</label>
-                    <input placeholder="test" value={this.props.work.company} name="company" onChange={this.props.handleChange} type="text"></input>
-                    <label>Position</label>
-                    <input value={this.props.work.position} name="position" onChange={this.props.handleChange} type="text"></input>
-                    <label>Start Date</label>
-                    <input value={this.props.work.yearStarted} name="yearStarted" onChange={this.props.handleChange} type="text"></input>
-                    <label>End Date</label>
-                    <input value={this.props.work.yearEnded} name="yearEnded" onChange={this.props.handleChange} type="text"></input>
-                    <label>Job Description</label>
-                    <input value={this.props.description} name="description" onChange={this.props.handleChange} type="text"></input>
-                    <button type="submit">Enter</button>
+// {/* <form>
+//                     {this.props.work.map((workInfo) => {
+//                         return <h1 key={workInfo.id}>{workInfo.company} {workInfo.position} {workInfo.yearStarted} {workInfo.yearEnded} {workInfo.description}</h1>
+//                     })}
+//                     <label>Company</label>
+//                     <input placeholder="test" value={this.props.work.company} name="company" onChange={this.props.handleChange} type="text"></input>
+//                     <label>Position</label>
+//                     <input value={this.props.work.position} name="position" onChange={this.props.handleChange} type="text"></input>
+//                     <label>Start Date</label>
+//                     <input value={this.props.work.yearStarted} name="yearStarted" onChange={this.props.handleChange} type="text"></input>
+//                     <label>End Date</label>
+//                     <input value={this.props.work.yearEnded} name="yearEnded" onChange={this.props.handleChange} type="text"></input>
+//                     <label>Job Description</label>
+//                     <input value={this.props.description} name="description" onChange={this.props.handleChange} type="text"></input>
+//                     <button type="submit">Enter</button>
 
                     
-                </form> */}
+//                 </form> */}
 
 
 
