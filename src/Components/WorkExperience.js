@@ -32,15 +32,13 @@ class WorkExperience extends Component {
                 </form>
 
                 <button onClick={this.props.addComponent}>Add</button>
+
                 {this.props.workArr.map((workInfo) => {
-                    
                     return <div>
-                           
-                          
                         <h1 key={workInfo.id}>{workInfo.company} {workInfo.position} {workInfo.yearStarted} {workInfo.yearEnded} {workInfo.description}</h1>  
                         </div>
-
-                })}
+                    })
+                }
 
 
                 {this.props.componentArray.map((workInfo) => {
