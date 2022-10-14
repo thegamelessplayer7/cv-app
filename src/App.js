@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
-import Personal from './Components/Personal';
-import PersonalRender from './Components/PersonalRender';
+import PersonalUI from './Components/PersonalUI';
 import WorkExperience from './Components/WorkExperience';
+import WorkExpUI from './Components/WorkExpUI';
+import NewWorkExperienceUI from './Components/NewWorkExperienceUI';
+import EducationUI from './Components/EducationUI';
 import uniqid from 'uniqid';
 
 
 class App extends Component {
   constructor(props) {
-    super(props)
+    super(props);
     
     this.state = {
         work: {
@@ -20,9 +22,11 @@ class App extends Component {
       },
       workArr: [{}],
       
-      componentArray: [{}],
+      componentArray: [{company: '', position: '', startDate: '', endDate: '', jobDescription: '', id: uniqid()}],
       educationArray: [{}],
     }
+
+    this.deleteComponent = this.deleteComponent.bind(this);
   }
 
   addWorkObject = () => {
@@ -35,10 +39,20 @@ class App extends Component {
 
   addComponent = (e) => {
     e.preventDefault();
-    console.log('test')
     this.setState((state, props) => ({
       componentArray: [...state.componentArray, {company: '', position: '', startDate: '', endDate: '', jobDescription: '', id: uniqid()}],
     }))}
+
+
+
+  deleteComponent(index) {
+    const newComponentArray = this.state.componentArray;
+    newComponentArray.splice(index, 1);
+    this.setState({
+      newComponentArray,
+    })
+  }
+
 
   workHandleChange = (e) => {
     e.preventDefault();
@@ -71,13 +85,14 @@ class App extends Component {
 
 
   render() {
-    // const { work, workArr, componentArray } = this.state;
     return (
       <div>
         
-        <PersonalRender />
-        <WorkExperience workArr={this.state.workArr} work={this.state.work} componentArray={this.state.componentArray} handleChange={this.workHandleChange} onSubmitTask={this.workOnSubmitTask} addComponent={this.addComponent} />
-
+        <PersonalUI />
+        <WorkExperience workArr={this.state.workArr} work={this.state.work} componentArray={this.state.componentArray} handleChange={this.workHandleChange} onSubmitTask={this.workOnSubmitTask} addComponent={this.addComponent} deleteComponent={this.deleteComponent} />
+        <WorkExpUI workArr={this.state.workArr} work={this.state.work} componentArray={this.state.componentArray} handleChange={this.workHandleChange} onSubmitTask={this.workOnSubmitTask} addComponent={this.addComponent} deleteComponent={this.deleteComponent} />
+        <NewWorkExperienceUI workArr={this.state.workArr} work={this.state.work} componentArray={this.state.componentArray} handleChange={this.workHandleChange} onSubmitTask={this.workOnSubmitTask} addComponent={this.addComponent} deleteComponent={this.deleteComponent} />
+        <EducationUI />
       </div>
     );
   }
@@ -85,4 +100,7 @@ class App extends Component {
 }
 
 export default App;
+
+
+
 

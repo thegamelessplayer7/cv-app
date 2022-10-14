@@ -5,7 +5,7 @@ import { toHaveFormValues } from '@testing-library/jest-dom/dist/matchers';
 import { type } from '@testing-library/user-event/dist/type';
 
 
-class PersonalRender extends Component {
+class PersonalUI extends Component {
   constructor() {
     super()
 
@@ -68,34 +68,14 @@ class PersonalRender extends Component {
           <button type="submit" >Submit</button>
         </form>
         <Personal info={infoArr} />
-
+      
       </div>
     );
   }
   
 }
 
-export default PersonalRender;
+export default PersonalUI;
 
 
 
-
-
-{/* <form>
-                    {this.props.work.map((workInfo) => {
-                        return <h1 key={workInfo.id}>{workInfo.company} {workInfo.position} {workInfo.yearStarted} {workInfo.yearEnded} {workInfo.description}</h1>
-                    })}
-                    <label>Company</label>
-                    <input placeholder="test" value={this.props.work.company} name="company" onChange={this.props.handleChange} type="text"></input>
-                    <label>Position</label>
-                    <input value={this.props.work.position} name="position" onChange={this.props.handleChange} type="text"></input>
-                    <label>Start Date</label>
-                    <input value={this.props.work.yearStarted} name="yearStarted" onChange={this.props.handleChange} type="text"></input>
-                    <label>End Date</label>
-                    <input value={this.props.work.yearEnded} name="yearEnded" onChange={this.props.handleChange} type="text"></input>
-                    <label>Job Description</label>
-                    <input value={this.props.description} name="description" onChange={this.props.handleChange} type="text"></input>
-                    <button type="submit">Enter</button>
-
-                    
-                </form> */}
