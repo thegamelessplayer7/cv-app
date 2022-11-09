@@ -12,4 +12,4 @@ class ButtonWork extends Component {
     }
 }
 
-export default ButtonWork;
+export default ButtonWork; 

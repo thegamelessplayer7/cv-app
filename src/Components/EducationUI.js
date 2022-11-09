@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import uniqid from 'uniqid';
 import Education from './Education';
 // import { format } from 'date-fns';
-
+ 
 class EducationUI extends Component {
     constructor() {
         super() 

@@ -4,7 +4,7 @@ import uniqid from 'uniqid';
 import { toHaveFormValues } from '@testing-library/jest-dom/dist/matchers';
 import { type } from '@testing-library/user-event/dist/type';
 
-
+ 
 class PersonalUI extends Component {
   constructor() {
     super()

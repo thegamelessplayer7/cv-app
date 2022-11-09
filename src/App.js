@@ -6,7 +6,7 @@ import NewWorkExperienceUI from './Components/NewWorkExperienceUI';
 import EducationUI from './Components/EducationUI';
 import uniqid from 'uniqid';
 
-
+ 
 class App extends Component {
   constructor(props) {
     super(props);
