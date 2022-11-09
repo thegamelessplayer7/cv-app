@@ -1,65 +1,23 @@
 import React, { Component } from 'react';
-import uniqid from 'uniqid';
-import Education from './Education';
-// import { format } from 'date-fns';
+import './EducationUI.css';
 
 class EducationUI extends Component {
-    constructor() {
-        super() 
-        
-        this.state = {
-            educationObj: {
-                degree: '',
-                university: '',
-                graduationDate: '',
-                id: uniqid(),
-            },
-            educationArr: [],
-        }
-    }
-
-    handleChange = (e) => {
-        const { value, name } = e.target;
-        this.setState({
-            educationObj: {
-                ...this.state.educationObj,
-                [name]: value,
-            }
-        })
-    }
-
-    onSubmitTask = (e) => {
-        e.preventDefault();
-        this.setState({
-            educationArr: [...this.state.educationArr, this.state.educationObj],
-            educationObj: {
-                degree: '',
-                university: '',
-                graduationDate: '',
-                id: uniqid(),
-            }
-        })
+    constructor(props) {
+        super(props); 
     }
 
     render() {
-        const { educationObj, educationArr } = this.state;
         return(
-            <div className="App">
-                <form onSubmit={this.onSubmitTask}>
-                    <label>Degree</label>
-                    <input value={educationObj.degree} name="degree" onChange={this.handleChange} type="text" ></input>
-                    <label>University</label>
-                    <input value={educationObj.university} name="university" onChange={this.handleChange} type="text" ></input>
-                    <label>Graduation Date</label>
-                    <input value={educationObj.graduationDate} name="name" onChange={this.handleChange} type="date" ></input>
+            <div className="educationUI">
+                <form onSubmit={this.props.onSubmitTask}>
+                    <input placeholder="Degree" value={this.props.degree} name="degree" onChange={this.props.handleChange} type="text" ></input>
+                    <input placeholder="University" value={this.props.university} name="university" onChange={this.props.handleChange} type="text" ></input>
+                    <input placeholder="Graduation Date" value={this.props.graduationDate} name="name" onChange={this.props.handleChange} type="date" ></input>
                     <button type="submit">Enter</button>
                 </form>
-                <Education info={educationArr} />
             </div>
         )
     }
-
-
 }
 
 export default EducationUI;
