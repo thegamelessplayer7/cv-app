@@ -1,13 +1,6 @@
 import React, { Component } from 'react';
-<<<<<<< HEAD
 import './EducationUI.css';
 
-=======
-import uniqid from 'uniqid';
-import Education from './Education';
-// import { format } from 'date-fns';
- 
->>>>>>> origin/main
 class EducationUI extends Component {
     constructor(props) {
         super(props); 
