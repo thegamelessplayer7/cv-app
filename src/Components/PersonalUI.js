@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './PersonalUI.css';
 
 
-
+ 
 class PersonalUI extends Component {
   constructor(props) {
     super(props)

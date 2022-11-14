@@ -9,6 +9,7 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+<<<<<<< HEAD
 }
 
 h1 {
@@ -36,3 +37,6 @@ h4 {
   font-weight: 600;
   margin: 0;
 }
+=======
+} 
+>>>>>>> origin/main
