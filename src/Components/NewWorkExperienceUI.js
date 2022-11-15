@@ -10,7 +10,6 @@ class NewWorkExperienceUI extends Component {
         return(
             <div>
                 {this.props.componentArray.map((info, index) => {
-                    console.log(this.props.componentArray);
                     return <div key={info.id}>     
                         <form onSubmit={this.props.onSubmitTask} >
                             <input placeholder="Company" value={this.props.company} name="company" onChange={this.props.handleChange} type="text"></input>

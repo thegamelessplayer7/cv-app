@@ -10,7 +10,7 @@ class WorkExperienceUI extends Component {
         return(
             <div>
                 <form onSubmit={this.props.onSubmitTask} >  
-                    <label class="label">Work Experience</label>  
+                    <label className="label">Work Experience</label>  
                     <input placeholder="Company" value={this.props.company} name="company" onChange={this.props.handleChange} type="text"></input>
                     <input placeholder="Position" value={this.props.position} name="position" onChange={this.props.handleChange} type="text"></input>
                     <input placeholder="Start Date" value={this.props.yearStarted} name="yearStarted" onChange={this.props.handleChange} type="text"></input>

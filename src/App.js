@@ -33,7 +33,7 @@ class App extends Component {
           description: '',
           id: uniqid(),
       },
-      workArr: [{}],
+      workArr: [],
       componentArray: [{
         company: '', 
         position: '', 
@@ -51,6 +51,8 @@ class App extends Component {
     }
 
     this.deleteComponent = this.deleteComponent.bind(this);
+    this.educationDeleteBtn = this.educationDeleteBtn.bind(this);
+    this.workExpDeleteBtn = this.workExpDeleteBtn.bind(this);
   }
 
   personalHandleChange = (e) => {
@@ -77,7 +79,6 @@ class App extends Component {
         id: uniqid(),
       },
     }))
-    console.log(this.state.infoArr);
   }
 
   addComponent = (e) => {
@@ -153,6 +154,23 @@ class App extends Component {
         }))
     }
 
+    educationDeleteBtn(index) {
+      const newEducation = this.state.educationArr;
+      newEducation.splice(index, 1);
+      this.setState({
+        newEducation,
+      })
+    } 
+
+    workExpDeleteBtn(index) {
+      const newWorkExp = this.state.workArr;
+      newWorkExp.splice(index, 1);
+      this.setState({
+        newWorkExp,
+      })
+    }
+
+
   render() {
     return (
       <div>
@@ -192,9 +210,11 @@ class App extends Component {
               />
               <WorkExp 
                   workArr={this.state.workArr} 
+                  deleteBtn={this.workExpDeleteBtn}
               />
               <Education 
-                  info={this.state.educationArr} 
+                  info={this.state.educationArr}
+                  deleteBtn={this.educationDeleteBtn} 
               />
           </div>
 

@@ -12,7 +12,7 @@ class PersonalUI extends Component {
     return (
       <div className="personalUI">
         <form onSubmit={this.props.onSubmitTask}>
-          <label class="label">Personal Details</label>
+          <label className="label">Personal Details</label>
           <input placeholder="Name" value={this.props.name} name="name" onChange={this.props.handleChange} type="text"></input>
           <input placeholder="Title" value={this.props.title} name="title" onChange={this.props.handleChange} type="text"></input>
           <input placeholder="Phone" value={this.props.phone} name="phone" onChange={this.props.handleChange} type="tel"></input>
